@@ -25,7 +25,6 @@
 // ******************************************************************************************************************
 //
 using System;
-using System.Collections.Generic;
 
 namespace Calculator.Concrete_Shape_Constraints
 {
@@ -47,7 +46,6 @@ namespace Calculator.Concrete_Shape_Constraints
     {
         //Data Members:
         private string[] typeStr = { "Equilateral", "Isosceles", "Scalene", "Acute", "Obtuse", "Right", "Invalid" };
-        //private List<string> userData;
         private string[] userData = new string[3];
         private string result = string.Empty;
 
@@ -106,7 +104,6 @@ namespace Calculator.Concrete_Shape_Constraints
                 else
                 {
                     //Sort the side values in ascending order
-                    //userData.Sort();
                     Array.Sort(userData);
 
                     //Calc Law of Cosine

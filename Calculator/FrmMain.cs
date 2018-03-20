@@ -26,7 +26,6 @@
 //
 using Calculator.Concrete_Shapes;
 using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Calculator
@@ -40,7 +39,6 @@ namespace Calculator
         private Validate validate;
         private TextBox currTxtBox;
         private Shape triangle;
-        //private List<string> userData;
         private string[] userData;
         private bool sideAIsValid;
         private bool sideBIsValid;
@@ -74,7 +72,6 @@ namespace Calculator
             validate = Calculator.Validate.GetInstance();
             currTxtBox = TxtSideA;
             triangle = new Triangle();
-            //userData = new List<string>();
             userData = new string[3];
             sideAIsValid = false;
             sideBIsValid = false;
@@ -87,14 +84,9 @@ namespace Calculator
         } // end FrmMain()
 
         /// <summary>
-        /// GetUserData method - to return the List data structure containing the user input for each side.
+        /// GetUserData method - to return the array of user input for each side.
         /// </summary>
-        /// <returns>List of strings</returns>
-        //public List<string> GetUserData()
-        //{
-        //    return userData;
-        //} // end method GetUserData()
-
+        /// <returns>array of strings</returns>
         public string[] GetUserData()
         {
             return userData;
@@ -103,19 +95,11 @@ namespace Calculator
         /// <summary>
         /// SetResult method - to set the text property of LblResults with the value returned from the shape evaluation.
         /// </summary>
-        /// <returns>List of strings</returns>
         public void SetResult(string result)
         {
             //Set results
             LblResults.Text = result;
             LblResults.Visible = true;
-
-            //Clear flags and userData List
-            //sideAIsValid = false;
-            //sideBIsValid = false;
-            //sideCIsValid = false;
-
-            //userData.Clear();
         } // end method SetResult()
 
         //*********************************** EVENT HANDLERS ***********************************
@@ -154,7 +138,6 @@ namespace Calculator
             sideAIsValid = false;
             sideBIsValid = false;
             sideCIsValid = false;
-            //userData.Clear();
 
             //Set focus to TxtSideA textbox
             TxtSideA.Focus();
@@ -171,18 +154,11 @@ namespace Calculator
         {
             if (sideAIsValid && sideBIsValid && sideCIsValid)
             {
-                //userData.Add(TxtSideA.Text);
-                //userData.Add(TxtSideB.Text);
-                //userData.Add(TxtSideC.Text);
-
                 userData[0] = TxtSideA.Text;
                 userData[1] = TxtSideB.Text;
                 userData[2] = TxtSideC.Text;
-
                 triangle.EvalConstraints();
             }
-
-            //userData.Clear();
         } // end method AllSides_TextChanged()
 
         /// <summary>
